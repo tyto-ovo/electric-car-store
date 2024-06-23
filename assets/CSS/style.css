@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
   --offwhite: #fff5e1;
   --pink: #ff6969;
@@ -11,13 +12,13 @@
 body {
   background-color: var(--offwhite);
   color: black;
+  font-family: "Roboto";
   display: grid;
   grid-template-areas:
     "nav"
     "header"
     "main"
     "footer";
-  max-width: 575px;
 }
 nav {
   grid-area: nav;
@@ -31,6 +32,19 @@ nav ul {
   justify-content: space-between;
   gap: 8px;
 }
+.logo {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+}
+.logo i {
+  padding-top: 8px;
+}
+.hamburguesa {
+  margin: 8px;
+  padding-top: 8px;
+}
 .desaparecer {
   display: none;
 }
@@ -40,8 +54,16 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: auto;
-  padding: 0 576px;
+  width: 100%;
+}
+header p {
+  border: 1px solid var(--offwhite);
+  border-radius: 4px;
+  margin: 8px;
+  padding: 8px 32px 8px 12px;
+  background-color: var(--offwhite);
 }
 main {
   grid-area: main;
@@ -55,13 +77,69 @@ main {
   gap: 16px;
 }
 .product-card {
-  width: 300px;
+  margin: 8px;
+  padding-right: 16px;
+  border: 1px solid var(--darkblue-purple);
+  border-radius: 8px;
 }
-.product-card img {
+.product-card button {
+  border: 1px solid var(--pink);
+  border-radius: 8px;
+  padding: 12px 16px 12px 16px;
+  gap: 8px;
+  background-color: var(--pink);
+  color: var(--darkblue-purple);
+}
+.product-card * {
+  margin: 8px;
+}
+.cabecera img {
   width: 100%;
 }
 footer {
   grid-area: footer;
   background-color: var(--darkblue-purple);
   color: var(--offwhite);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+}
+@media (min-width: 576px) {
+  body {
+    grid-template-areas:
+      "nav header header header"
+      "nav main main main"
+      "footer main main main";
+    min-height: 100vh;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+  }
+  nav .logo {
+    display: flex;
+    justify-content: center;
+  }
+  header p {
+    padding-right: 400px;
+  }
+  menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12px;
+  }
+  menu .hamburguesa {
+    display: none;
+  }
+  .desaparecer {
+    display: block;
+  }
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
